@@ -1,0 +1,24 @@
+<ng-container *ngIf="quoteData; else noData">
+    <div class="divCenter">
+        <div class="card">
+            <div class="carBody">
+                <h3>{{ quoteData.quote }}</h3>
+                <p>
+                    - <em>{{ quoteData.character }}</em>
+                </p>
+                <p>{{ quoteData.anime }}</p>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-template #noData>
+    <div class="divCenter">
+        <div class="card">
+            <div class="carBody">
+                <h3>Too Many Requests</h3>
+                <p>- <em> Quotes servers </em></p>
+                <p>Understand</p>
+            </div>
+        </div>
+    </div>
+</ng-template>
