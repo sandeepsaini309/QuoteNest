@@ -1,18 +1,16 @@
-<div class="divCenter">
-    <div class="card">
-        <div>
-            <ng-container *ngIf="quoteData; else noData">
-                <h3>{{ quoteData.quote }}</h3>
-                <p>
-                    - <em>{{ quoteData.character }}</em>
-                </p>
-                <p>{{ quoteData.anime }}</p>
-            </ng-container>
-            <ng-template #noData>
-                <h3>Too Many Requests</h3>
-                <p>- <em> Quotes servers </em></p>
-                <p>Understand</p>
-            </ng-template>
-        </div>
+<div class="card rounded-5 p-3 mx-auto myCard" style="max-width: 840px;">
+    <div class="card-body">
+        <ng-container *ngIf="quoteData; else noData">
+            <h3>{{ quoteData.quote }}</h3>
+            <p>
+                - <em>{{ quoteData.character }}</em>
+            </p>
+            <p>{{ quoteData.anime }}</p>
+        </ng-container>
+        <ng-template #noData>
+            <h3>Too Many Requests</h3>
+            <p>- <em> Quotes servers </em></p>
+            <p>Understand</p>
+        </ng-template>
     </div>
 </div>
