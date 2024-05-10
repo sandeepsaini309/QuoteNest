@@ -3,11 +3,22 @@
 </ngx-spinner>
 <div class="cover">
   <div class="container-fluid cover">
-    <div class="text-center p-4">
+    <header class="text-center p-4">
       <h1 class="display-1">Quotes App</h1>
-    </div>
-    <div class="container ps-md-4 mt-3 mt-md-5">
+    </header>
+    <main class="container ps-md-4 mt-3 mt-md-5">
       <app-quote-card [quoteData]="quoteObj"></app-quote-card>
-    </div>
+    </main>
+    <footer class="fixed-bottom text-white">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center">
+            <p>Made with 🩷 By <a class="link-light" href="https://github.com/Sandeepsaini309" target="_blank"
+                rel="noopener noreferrer">
+                Sandeep Saini</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </div>
