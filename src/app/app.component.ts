@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 // import { Subscription } from 'rxjs';
 import { AnimeQuotesService } from './services/anime-quotes.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { QuotesService } from './services/quotes.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
   // private getRandomQuoteSub!: Subscription;
 
   constructor(
-    private animeQuotesService: AnimeQuotesService,
+    private quotesService: QuotesService,
     private spinner: NgxSpinnerService
   ) {}
 
@@ -29,7 +30,7 @@ export class AppComponent {
     // });
 
     this.spinner.show();
-    const getRandomQuoteData = await this.animeQuotesService.getRandomQuote();
+    const getRandomQuoteData = await this.quotesService.getRandomQuote();
     this.spinner.hide();
     console.log('getRandomQuoteData', getRandomQuoteData);
     if (getRandomQuoteData) this.quoteObj = getRandomQuoteData;

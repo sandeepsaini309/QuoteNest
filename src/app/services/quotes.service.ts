@@ -1,22 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Observable, lastValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { SharedService } from './shared.service';
-import { AnimeQuoteInterface } from '../interfaces/anime-quote.interface';
+import { lastValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { QuoteInterface } from '../interfaces/quote.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AnimeQuotesService {
+export class QuotesService {
   private apiBaseUrl = environment.baseUrl;
   constructor(private http: HttpClient, private sharedService: SharedService) {}
 
-  public async getRandomQuote(): Promise<AnimeQuoteInterface | null> {
-    // return this.http.get<AnimeQuoteInterface>(`${this.apiBaseUrl}/random`);
-
+  public async getRandomQuote(): Promise<QuoteInterface | null> {
     try {
-      const request = this.http.get<AnimeQuoteInterface>(
+      const request = this.http.get<QuoteInterface>(
         `${this.apiBaseUrl}/random`
       );
       return await lastValueFrom(request);

@@ -1,16 +1,20 @@
 <div matRipple class="card rounded-5 p-3 mx-auto myCard" style="max-width: 840px;">
     <div class="card-body">
         <ng-container *ngIf="quoteData; else noData">
-            <h3>{{ quoteData.quote }}</h3>
+            <h3>{{ quoteData.content }}</h3>
+            <p>
+                - <em>{{ quoteData.author }}</em>
+            </p>
+            <!-- <h3>{{ quoteData.quote }}</h3>
             <p>
                 - <em>{{ quoteData.character }}</em>
             </p>
-            <p>{{ quoteData.anime }}</p>
+            <p>{{ quoteData.anime }}</p> -->
         </ng-container>
         <ng-template #noData>
             <h3>I have reached my limits</h3>
             <p>- <em> System servers </em></p>
-            <p>Internet Of Things</p>
+            <!-- <p>Internet Of Things</p> -->
         </ng-template>
     </div>
 </div>
