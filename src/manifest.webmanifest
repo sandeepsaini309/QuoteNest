@@ -1,7 +1,7 @@
 {
   "name": "QuoteNest",
   "short_name": "QuoteNest",
-  "theme_color": "#fafafa",
+  "theme_color": "#000",
   "background_color": "#000",
   "display": "standalone",
   "scope": "./",
