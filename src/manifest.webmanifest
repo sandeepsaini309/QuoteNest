@@ -1,6 +1,6 @@
 {
-  "name": "QuotesApp",
-  "short_name": "QuotesApp",
+  "name": "QuoteNest",
+  "short_name": "QuoteNest",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
