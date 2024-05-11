@@ -17,20 +17,20 @@ export class AppComponent {
     private spinner: NgxSpinnerService
   ) {}
 
-  async ngOnInit() {
-    this.spinner.show();
-    await this.getRandomQuote();
-    this.spinner.hide();
+  ngOnInit() {
+    this.getRandomQuote();
   }
 
-  private async getRandomQuote() {
+  public async getRandomQuote() {
     // const getRandomQuoteData = this.animeQuotesService.getRandomQuote();
     // this.getRandomQuoteSub = getRandomQuoteData.subscribe((res) => {
     //   console.log('getRandomQuoteSub res', res);
     //   this.quoteObj = res;
     // });
 
+    this.spinner.show();
     const getRandomQuoteData = await this.animeQuotesService.getRandomQuote();
+    this.spinner.hide();
     console.log('getRandomQuoteData', getRandomQuoteData);
     if (getRandomQuoteData) this.quoteObj = getRandomQuoteData;
   }
