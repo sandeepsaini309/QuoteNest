@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
 import { AnimeQuotesService } from './services/anime-quotes.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -9,25 +9,34 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'QuotesApp';
   public quoteObj: any;
-  private getRandomQuoteSub!: Subscription;
+  // private getRandomQuoteSub!: Subscription;
+
   constructor(
     private animeQuotesService: AnimeQuotesService,
     private spinner: NgxSpinnerService
   ) {}
-  ngOnInit() {
+
+  async ngOnInit() {
     this.spinner.show();
-    const getRandomQuoteData = this.animeQuotesService.getRandomQuote();
-    this.getRandomQuoteSub = getRandomQuoteData.subscribe((res) => {
-      console.log('getRandomQuoteSub res', res);
-      this.quoteObj = res;
-    });
+    await this.getRandomQuote();
     this.spinner.hide();
   }
 
+  private async getRandomQuote() {
+    // const getRandomQuoteData = this.animeQuotesService.getRandomQuote();
+    // this.getRandomQuoteSub = getRandomQuoteData.subscribe((res) => {
+    //   console.log('getRandomQuoteSub res', res);
+    //   this.quoteObj = res;
+    // });
+
+    const getRandomQuoteData = await this.animeQuotesService.getRandomQuote();
+    console.log('getRandomQuoteData', getRandomQuoteData);
+    if (getRandomQuoteData) this.quoteObj = getRandomQuoteData;
+  }
+
   ngOnDestroy() {
-    this.getRandomQuoteSub.unsubscribe();
+    // this.getRandomQuoteSub.unsubscribe();
     console.log('ngOnDestroy');
   }
 }
