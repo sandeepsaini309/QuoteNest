@@ -1,7 +1,9 @@
 .myCard {
   transition: box-shadow 0.5s linear;
+  color: #d1cdc7;
+  background-color: #181a1b;
   &:hover {
-    box-shadow: 2px 2px 10px 5px #ccc;
+    box-shadow: 2px 2px 10px 5px #35393b;
     transition: box-shadow 0.2s linear;
   }
 }
