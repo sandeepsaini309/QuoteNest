@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { QuoteInterface } from 'src/app/interfaces/quote.interface';
 
 @Component({
   selector: 'app-quote-card',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./quote-card.component.scss'],
 })
 export class QuoteCardComponent {
-  @Input() quoteData!: any;
+  @Input() quoteData!: QuoteInterface;
   constructor() {}
   ngOnInit() {}
   ngOnDestroy() {}
