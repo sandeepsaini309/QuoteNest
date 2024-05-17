@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { QuoteInterface } from 'src/app/interfaces/quote.interface';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-quote-card',
@@ -8,7 +9,8 @@ import { QuoteInterface } from 'src/app/interfaces/quote.interface';
 })
 export class QuoteCardComponent {
   @Input() quoteData!: QuoteInterface;
-  constructor() {}
+  constructor(public sharedService: SharedService) {}
   ngOnInit() {}
+
   ngOnDestroy() {}
 }
