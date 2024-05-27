@@ -13,8 +13,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatRippleModule } from '@angular/material/core';
-
 import { MatCardModule } from '@angular/material/card';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 const MaterialComponents = [
   MatButtonModule,
   MatSidenavModule,
@@ -30,6 +30,7 @@ const MaterialComponents = [
   MatInputModule,
   MatRippleModule,
   MatCardModule,
+  ClipboardModule,
 ];
 
 @NgModule({

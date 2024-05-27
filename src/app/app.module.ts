@@ -4,14 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuoteCardComponent } from './components/quote-card/quote-card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ThemeModeDirective } from './directives/theme-mode.directive';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FooterMenuComponent } from './components/footer-menu/footer-menu.component';
 
 @NgModule({
-  declarations: [AppComponent, QuoteCardComponent],
+  declarations: [
+    AppComponent,
+    QuoteCardComponent,
+    ThemeModeDirective,
+    FooterMenuComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +34,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MaterialModule,
     NgxSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
