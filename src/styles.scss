@@ -30,3 +30,12 @@ body {
     background-position: 0% 50%;
   }
 }
+*:focus {
+  outline: none !important;
+  border: 0 !important;
+}
+button {
+  mat-icon {
+    font-size: 32px;
+  }
+}
