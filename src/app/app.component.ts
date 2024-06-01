@@ -12,11 +12,18 @@ import { QuotesService } from './services/quotes.service';
 export class AppComponent {
   public quoteObj: any;
   // private getRandomQuoteSub!: Subscription;
+  screenWidth: number;
 
   constructor(
     private quotesService: QuotesService,
     private spinner: NgxSpinnerService
-  ) {}
+  ) {
+    this.screenWidth = window.innerWidth;
+    window.onresize = () => {
+      // * set screenWidth on screen size change
+      this.screenWidth = window.innerWidth;
+    };
+  }
 
   ngOnInit() {
     this.getRandomQuote();
