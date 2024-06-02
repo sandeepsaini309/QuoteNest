@@ -3,6 +3,7 @@
 </ngx-spinner>
 
 <div class="cover">
+  <app-header [drawer]="drawer"></app-header>
   <mat-drawer-container autosize>
     <!-- <mat-drawer #drawer class="p-5" [mode]="screenWidth > 840 ? 'side' : 'over'"> -->
     <mat-drawer #drawer [mode]="'over'">
@@ -10,7 +11,7 @@
     </mat-drawer>
 
     <mat-drawer-content>
-      <app-header [drawer]="drawer"></app-header>
+      <!-- <app-header [drawer]="drawer"></app-header> -->
       <router-outlet></router-outlet>
     </mat-drawer-content>
 
