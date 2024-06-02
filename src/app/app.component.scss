@@ -1,0 +1,16 @@
+mat-drawer-container {
+  // height: 100vh;
+  height: calc(100% - 88px);
+  background: transparent;
+}
+mat-drawer-content {
+  // background-color: transparent !important;
+}
+mat-drawer {
+  width: 250px;
+  height: 100%;
+
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  position: fixed; // ? mat-drawer should take full height
+}

@@ -1,0 +1,25 @@
+<div class="menuHeader">
+    <div class="menuLogo">
+        <img class="img-fluid" src="../../../assets/icons/icon-72.png" alt="" srcset="">
+        <span><em>Where words find their home</em></span>
+    </div>
+</div>
+
+<mat-list>
+    <mat-list-item matRipple [routerLink]="['/home']" routerLinkActive="myActive">
+        <div class="d-flex">
+            <span>Home</span>
+            <span class="example-spacer"></span>
+            <mat-icon>home</mat-icon>
+        </div>
+    </mat-list-item>
+
+    <mat-list-item matRipple [routerLink]="['/saved']" routerLinkActive="myActive">
+        <div class="d-flex">
+            <span>Saved</span>
+            <span class="example-spacer"></span>
+            <mat-icon>bookmark</mat-icon>
+        </div>
+    </mat-list-item>
+
+</mat-list>

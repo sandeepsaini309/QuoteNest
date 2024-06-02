@@ -1,31 +1,20 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
   <p style="color: white"> Please wait... </p>
 </ngx-spinner>
-<div class="cover">
-  <div class="container-fluid cover">
-    <header class="text-center p-4">
-      <h1 class="display-1">QuoteNest</h1>
-      <p>Where words find their home</p>
-      <!-- "Welcome to QUOTE NEST – where words find their home." -->
-    </header>
-    <main class="container ps-md-4 mt-3 mt-md-5">
-      <app-quote-card [quoteData]="quoteObj"></app-quote-card>
-      <div class="mt-5 text-center">
-        <button class="rounded-5 px-4" mat-stroked-button (click)="getRandomQuote()">Refresh</button>
-      </div>
-    </main>
-    <footer class="fixed-bottom text-white">
-      <div class="row">
-        <div class="col-12">
-          <div class="text-center text-dark">
-            <p>Made with 🩷 By <a class="link-dark" href="https://github.com/Sandeepsaini309" target="_blank"
-                rel="noopener noreferrer">
-                Sandeep Saini</a></p>
-          </div>
-        </div>
-      </div>
 
-      <!-- <app-footer-menu></app-footer-menu> -->
-    </footer>
-  </div>
+<div class="cover">
+  <app-header [drawer]="drawer"></app-header>
+  <mat-drawer-container autosize>
+    <!-- <mat-drawer #drawer class="p-5" [mode]="screenWidth > 840 ? 'side' : 'over'"> -->
+    <mat-drawer #drawer [mode]="'over'">
+      <app-menu></app-menu>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <!-- <app-header [drawer]="drawer"></app-header> -->
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+  </mat-drawer-container>
+
 </div>
