@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuoteCardComponent } from './components/quote-card/quote-card.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,13 +12,22 @@ import { CardThemeDirective } from './directives/card-theme.directive';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FooterMenuComponent } from './components/footer-menu/footer-menu.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { QuoteCardComponent } from './components/quote-card/quote-card.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { SavedQuotesComponent } from './components/saved-quotes/saved-quotes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuoteCardComponent,
     CardThemeDirective,
     FooterMenuComponent,
+    QuoteCardComponent,
+    HomeComponent,
+    HeaderComponent,
+    MenuComponent,
+    SavedQuotesComponent,
   ],
   imports: [
     BrowserModule,

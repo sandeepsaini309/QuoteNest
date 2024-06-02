@@ -4,6 +4,8 @@ import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-quote-card',
+  // standalone: true,
+  // imports: [MaterialModule],
   templateUrl: './quote-card.component.html',
   styleUrls: ['./quote-card.component.scss'],
 })

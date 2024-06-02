@@ -1,0 +1,28 @@
+.myHeader {
+  color: #d1cdc7;
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+
+  .menuBtn {
+    border: 0;
+    background: transparent;
+    padding: 4px;
+    border-radius: 10px;
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
