@@ -16,6 +16,12 @@
                         content_copy
                     </mat-icon>
                 </button>
+                <button mat-icon-button class="text-light" (click)="sharedService.saveToLocalStorage(quoteData)"
+                    matTooltip="copy to clipboard">
+                    <mat-icon>
+                        bookmark
+                    </mat-icon>
+                </button>
             </div>
         </div>
         }@else {
