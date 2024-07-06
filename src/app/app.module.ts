@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
+  withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -21,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SavedQuotesComponent } from './components/saved-quotes/saved-quotes.component';
+import { loaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,12 +50,15 @@ import { SavedQuotesComponent } from './components/saved-quotes/saved-quotes.com
     NgxSpinnerModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: { appearance: 'outline' },
     },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: loaderInterceptor, multi: true },
+
     provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([loaderInterceptor])),
   ],
 })
 export class AppModule {}
