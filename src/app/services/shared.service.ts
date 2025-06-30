@@ -12,7 +12,7 @@ export class SharedService {
     this.snackBar.open(msg || 'Done', action || 'Ok', {
       duration: 2000,
       horizontalPosition: 'end',
-      verticalPosition: 'top',
+      verticalPosition: 'bottom',
     });
   }
 
