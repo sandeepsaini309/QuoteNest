@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
 
 @Component({
-  selector: 'app-home',
-  // standalone: true,
-  // imports: [QuoteCardComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    // standalone: true,
+    // imports: [QuoteCardComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss',
+    standalone: false
 })
 export class HomeComponent {
   public quoteObj: any;
