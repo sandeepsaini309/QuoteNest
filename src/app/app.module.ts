@@ -10,7 +10,6 @@ import {
 } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
@@ -29,7 +28,6 @@ import { loaderInterceptor } from './interceptors/loader.interceptor';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     BrowserAnimationsModule,
-    MaterialModule,
     NgxSpinnerModule,
   ],
   providers: [

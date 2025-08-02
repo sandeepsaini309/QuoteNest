@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
+import { QuoteCardComponent } from '../quote-card/quote-card.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  imports: [QuoteCardComponent],
 })
 export class HomeComponent {
   public quoteObj: any;
