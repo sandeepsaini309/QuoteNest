@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SharedService } from './shared.service';
 import { lastValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { QuoteInterface } from '../interfaces/quote.interface';
 
 @Injectable({

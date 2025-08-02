@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, lastValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { lastValueFrom } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { SharedService } from './shared.service';
 import { AnimeQuoteInterface } from '../interfaces/anime-quote.interface';
