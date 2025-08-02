@@ -1,8 +1,7 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
-    selector: '[appCardTheme]',
-    standalone: false
+  selector: '[appCardTheme]',
 })
 export class CardThemeDirective {
   constructor(private eleRef: ElementRef, private render: Renderer2) {
