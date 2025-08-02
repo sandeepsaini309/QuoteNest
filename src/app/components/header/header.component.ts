@@ -6,6 +6,7 @@ import { MatRippleModule } from '@angular/material/core';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  standalone: true,
   imports: [RouterModule, MatRippleModule],
 })
 export class HeaderComponent {

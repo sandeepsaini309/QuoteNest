@@ -9,6 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true,
   imports: [NgxSpinnerModule, HeaderComponent, MatSidenavModule, MenuComponent, RouterOutlet],
 })
 export class AppComponent {
