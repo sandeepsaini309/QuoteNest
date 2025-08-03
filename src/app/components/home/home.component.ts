@@ -18,11 +18,15 @@ export class HomeComponent {
   ) { }
 
   ngOnInit() {
-    this.getQuoteSlateRandomQuote();
+    if (this.apiService.cachedQuote) {
+      this.quoteData = this.apiService.cachedQuote;
+    } else {
+      this.getQuoteSlateRandomQuote();
+    }
   }
 
   public async getQuoteSlateRandomQuote() {
-    const getRandomQuote = await this.apiService.getQuoteSlateRandomQuote();
+    const getRandomQuote = await this.apiService.getQuoteSlateRandomQuote(true);
     if (getRandomQuote) {
       this.quoteData = getRandomQuote;
     }

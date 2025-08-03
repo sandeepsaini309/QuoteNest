@@ -15,12 +15,19 @@ export class ApiService {
     private sharedService: SharedService
   ) { }
 
-  public async getQuoteSlateRandomQuote(): Promise<QuoteSlateInterface | null> {
+  public cachedQuote: QuoteSlateInterface | null = null;
+
+  public async getQuoteSlateRandomQuote(forceRefresh = false): Promise<QuoteSlateInterface | null> {
+    if (!forceRefresh && this.cachedQuote) {
+      return this.cachedQuote;
+    }
     try {
       const request = this.http.get<QuoteSlateInterface>(
         `${environment.QS_API_BASE_URL}/quotes/random`
       );
-      return await lastValueFrom(request);
+      const result = await lastValueFrom(request);
+      this.cachedQuote = result;
+      return result;
     } catch (e: any) {
       console.error('getQuoteSlateRandomQuote error', e);
       this.sharedService.openSnackBar(e.statusText || 'Something went wrong!');
