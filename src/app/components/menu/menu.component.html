@@ -3,23 +3,19 @@
         <img class="img-fluid" src="../../../assets/icons/icon-72.png" alt="" srcset="">
         <span><em>Where words find their home</em></span>
     </div>
+    <!-- <button mat-icon-button class="text-light" (click)="closeDrawer()" matTooltip="Close menu">
+        <mat-icon>close</mat-icon>
+    </button> -->
 </div>
 
 <mat-list>
-    <mat-list-item matRipple [routerLink]="['/home']" routerLinkActive="myActive">
-        <div class="d-flex">
-            <span>Home</span>
-            <span class="example-spacer"></span>
-            <mat-icon>home</mat-icon>
+    @for (menu of menuList; track $index) {
+    <mat-list-item matRipple [routerLink]="[menu.link]" routerLinkActive="myActive">
+        <div class="d-flex gap-2 align-items-center">
+            <mat-icon>{{ menu.icon }}</mat-icon>
+            <!-- <span class="example-spacer"></span> -->
+            <span>{{ menu.name }}</span>
         </div>
     </mat-list-item>
-
-    <mat-list-item matRipple [routerLink]="['/saved']" routerLinkActive="myActive">
-        <div class="d-flex">
-            <span>Saved</span>
-            <span class="example-spacer"></span>
-            <mat-icon>bookmark</mat-icon>
-        </div>
-    </mat-list-item>
-
+    }
 </mat-list>
