@@ -19,7 +19,7 @@ export class SharedService {
   }
 
   public copyToClipboard(data: any) {
-    this.clipBoard.copy(`${data.content} - ${data.author}`);
+    this.clipBoard.copy(`${data.quote} - ${data.author}`);
     this.openSnackBar('Quote copied');
   }
 
