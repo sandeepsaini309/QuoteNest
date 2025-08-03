@@ -3,30 +3,29 @@
         @if (quoteData) {
         <div class="row">
             <div class="col-sm-12 col-md-11">
-
-                <h3>{{ quoteData.content }}</h3>
+                <h3>{{ quoteData.quote }}</h3>
                 <p>
                     - <em>{{ quoteData.author }}</em>
                 </p>
             </div>
             <div class="col-sm-12 col-md-1">
-                <button mat-icon-button class="text-light" (click)="sharedService.copyToClipboard(quoteData)"
+                <button mat-icon-button class="text-light" (click)="copyToClipboard(quoteData)"
                     matTooltip="copy to clipboard">
                     <mat-icon>
                         content_copy
                     </mat-icon>
                 </button>
-                <button mat-icon-button class="text-light" (click)="sharedService.saveToLocalStorage(quoteData)"
-                    matTooltip="copy to clipboard">
-                    <mat-icon>
-                        bookmark
-                    </mat-icon>
-                </button>
+                <button mat-icon-button class="text-light" (click)="saveToLocalStorage(quoteData)"
+        [matTooltip]="isQuoteSaved(quoteData) ? 'Bookmarked' : 'Bookmark'">
+  <mat-icon>
+    {{ isQuoteSaved(quoteData) ? 'bookmark' : 'bookmark_border' }}
+  </mat-icon>
+</button>
             </div>
         </div>
         }@else {
-        <h3>I have reached my limits</h3>
-        <p>- <em> System servers </em></p>
+        <h3>Oops! Even the quote machine needs a coffee break ☕</h3>
+        <p>- <em>Server is out finding inspiration...</em></p>
         }
     </div>
 </div>

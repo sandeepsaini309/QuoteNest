@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { QuoteCardComponent } from '../quote-card/quote-card.component';
+import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
 
 @Component({
   selector: 'app-saved-quotes',
@@ -9,8 +10,8 @@ import { QuoteCardComponent } from '../quote-card/quote-card.component';
   imports: [QuoteCardComponent],
 })
 export class SavedQuotesComponent {
-  quotesData: any[] = [];
-  constructor() {}
+  quotesList: QuoteSlateInterface[] = [];
+  constructor() { }
   ngOnInit() {
     this.getSavedQuotes();
   }
@@ -18,11 +19,15 @@ export class SavedQuotesComponent {
   getSavedQuotes() {
     try {
       const data = localStorage.getItem('savedQuotes');
-      if (data) {
-        this.quotesData = JSON.parse(data);
-      } else {
-        this.quotesData = [];
-      }
-    } catch (e) {}
+      this.quotesList = JSON.parse(data || '[]') as QuoteSlateInterface[];
+    } catch (e) { }
+  }
+
+  unsaveQuote(quote: QuoteSlateInterface) {
+    const data = localStorage.getItem('savedQuotes');
+    let savedQuotes: QuoteSlateInterface[] = JSON.parse(data || '[]');
+    savedQuotes = savedQuotes.filter(q => q.id !== quote.id);
+    localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+    this.getSavedQuotes();
   }
 }
