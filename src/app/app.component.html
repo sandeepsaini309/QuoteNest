@@ -6,8 +6,8 @@
   <app-header [drawer]="drawer"></app-header>
   <mat-drawer-container autosize>
     <!-- <mat-drawer #drawer class="p-5" [mode]="screenWidth > 840 ? 'side' : 'over'"> -->
-    <mat-drawer #drawer [mode]="'over'">
-      <app-menu></app-menu>
+    <mat-drawer #drawer [mode]="'over'" position="end">
+      <app-menu [drawer]="drawer"></app-menu>
     </mat-drawer>
 
     <mat-drawer-content>
