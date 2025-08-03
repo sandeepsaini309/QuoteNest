@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { QuotesService } from '../../services/quotes.service';
 import { QuoteCardComponent } from '../quote-card/quote-card.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ApiService } from 'src/app/services/api.service';
+import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +12,20 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [QuoteCardComponent, MatButtonModule],
 })
 export class HomeComponent {
-  public quoteObj: any;
-  constructor(private quotesService: QuotesService) {}
+  quoteData!: QuoteSlateInterface;
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit() {
-    this.getRandomQuote();
+    this.getQuoteSlateRandomQuote();
   }
 
-  public async getRandomQuote() {
-    const getRandomQuoteData = await this.quotesService.getRandomQuote();
-    console.log('getRandomQuoteData', getRandomQuoteData);
-    if (getRandomQuoteData) this.quoteObj = getRandomQuoteData;
+  public async getQuoteSlateRandomQuote() {
+    const getRandomQuote = await this.apiService.getQuoteSlateRandomQuote();
+    if (getRandomQuote) {
+      this.quoteData = getRandomQuote;
+    }
   }
 
   ngOnDestroy() {

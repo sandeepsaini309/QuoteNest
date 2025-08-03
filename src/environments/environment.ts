@@ -1,5 +1,5 @@
 export const environment = {
-  // baseUrl: 'https://animechan.xyz/api',
-  baseUrl: 'https://api.quotable.io',
+  QS_API_BASE_URL: 'https://quoteslate.vercel.app/api',
+  ANIME_API_BASE_URL: 'https://api.animechan.io/v1',
   production: false,
 };
