@@ -90,10 +90,6 @@ A sophisticated quote management application that serves as a home for worldwide
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 👨‍💻 Author
 
 **Sandeep Saini**
