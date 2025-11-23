@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRippleModule } from '@angular/material/core';
-import { CommonModule } from '@angular/common';
+
 import { CardThemeDirective } from '../../directives/card-theme.directive';
 import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
 
@@ -13,7 +13,7 @@ import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
   templateUrl: './quote-card.component.html',
   styleUrls: ['./quote-card.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatTooltipModule, MatRippleModule, CardThemeDirective],
+  imports: [MatIconModule, MatButtonModule, MatTooltipModule, MatRippleModule, CardThemeDirective],
 })
 export class QuoteCardComponent {
   @Input() quoteData!: QuoteSlateInterface;
