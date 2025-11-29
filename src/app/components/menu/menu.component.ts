@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
@@ -26,13 +26,14 @@ interface MenuInterface {
   ],
 })
 export class MenuComponent {
-  @Input() drawer!: MatDrawer;
+  drawer = input.required<MatDrawer>();
+  
   menuList: MenuInterface[] = [
     { name: 'Home', icon: 'home', link: '/home' },
     { name: 'Saved', icon: 'bookmark', link: '/saved' },
   ];
 
   closeDrawer() {
-    this.drawer.close();
+    this.drawer().close();
   }
 }

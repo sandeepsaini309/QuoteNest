@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { QuoteCardComponent } from '../quote-card/quote-card.component';
 import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
 import { Router } from '@angular/router';
@@ -13,8 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [QuoteCardComponent, MatButtonModule, MatIconModule],
 })
 export class SavedQuotesComponent {
-  quotesList: QuoteSlateInterface[] = [];
+  quotesList: WritableSignal<QuoteSlateInterface[]> = signal([]);
+  
   constructor(private router: Router) { }
+  
   ngOnInit() {
     this.getSavedQuotes();
   }
@@ -22,7 +24,7 @@ export class SavedQuotesComponent {
   getSavedQuotes() {
     try {
       const data = localStorage.getItem('savedQuotes');
-      this.quotesList = JSON.parse(data || '[]') as QuoteSlateInterface[];
+      this.quotesList.set(JSON.parse(data || '[]') as QuoteSlateInterface[]);
     } catch (e) { }
   }
 

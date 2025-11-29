@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -10,5 +11,5 @@ import { MatRippleModule } from '@angular/material/core';
   imports: [RouterModule, MatRippleModule],
 })
 export class HeaderComponent {
-  @Input() drawer: any;
+  drawer = input.required<MatDrawer>();
 }
