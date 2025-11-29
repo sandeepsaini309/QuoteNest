@@ -15,7 +15,7 @@
                         content_copy
                     </mat-icon>
                 </button>
-                <button mat-icon-button class="text-light" (click)="saveToLocalStorage(quoteData())"
+                <button mat-icon-button class="text-light" (click)="toggleSave(quoteData())"
                     [matTooltip]="isQuoteSaved(quoteData()) ? 'Bookmarked' : 'Bookmark'">
                     <mat-icon>
                         {{ isQuoteSaved(quoteData()) ? 'bookmark' : 'bookmark_border' }}

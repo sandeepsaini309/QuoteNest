@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+// Define a Material 3 theme
+$my-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  typography: (
+    brand-family: 'Open Sans',
+    plain-family: 'Open Sans',
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+// Apply the theme to all components
+:root {
+  @include mat.all-component-themes($my-theme);
+}
+
+// Ensure Material 3 styling is applied
+html {
+  @include mat.theme($my-theme);
+}

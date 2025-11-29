@@ -4,9 +4,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { CardThemeDirective } from '../../directives/card-theme.directive';
 import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-quote-card',
@@ -17,20 +19,36 @@ import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
 })
 export class QuoteCardComponent {
   quoteData = input.required<QuoteSlateInterface>();
-  constructor(private sharedService: SharedService) { }
+  constructor(
+    private sharedService: SharedService,
+    private dialog: MatDialog
+  ) { }
 
   public copyToClipboard(data: QuoteSlateInterface) {
     this.sharedService.copyToClipboard(data);
   }
 
-  public saveToLocalStorage(data: QuoteSlateInterface) {
-    this.sharedService.saveToLocalStorage(data);
+  public toggleSave(data: QuoteSlateInterface) {
+    if (this.isQuoteSaved(data)) {
+      this.openUnsaveConfirmDialog(data);
+    } else {
+      this.sharedService.saveToLocalStorage(data);
+    }
+  }
+
+  private openUnsaveConfirmDialog(data: QuoteSlateInterface) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Are you sure you want to unsave this quote?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.sharedService.removeQuote(data.id);
+      }
+    });
   }
 
   public isQuoteSaved(quote: QuoteSlateInterface): boolean {
-    const saved = localStorage.getItem('savedQuotes');
-    if (!saved) return false;
-    const savedQuotes: QuoteSlateInterface[] = JSON.parse(saved);
-    return savedQuotes.some(q => q.id === quote.id);
+    return this.sharedService.isQuoteSaved(quote.id);
   }
 }
