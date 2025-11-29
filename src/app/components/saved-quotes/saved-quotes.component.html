@@ -1,6 +1,6 @@
 <div class="container p-4">
     <h4 class="display-4 text-center mb-5">Saved quotes</h4>
-    @for (quote of quotesList; track $index) {
+    @for (quote of quotesList(); track $index) {
     <div class="col-md-6 mb-4">
         <app-quote-card [quoteData]="quote"></app-quote-card>
     </div>
@@ -11,7 +11,7 @@
         </div> -->
         <div class="mb-3 fs-4">Oops! No quotes in your nest yet.<br>Go catch some wisdom and save your favorites!
         </div>
-        <button class="rounded-5 px-4" mat-stroked-button (click)="goToQuotes()">Let’s Fill This Nest!</button>
+        <button class="rounded-5 px-4" mat-stroked-button (click)="goToQuotes()">Let's Fill This Nest!</button>
     </div>
     }
 </div>

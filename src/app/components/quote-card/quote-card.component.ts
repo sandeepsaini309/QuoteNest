@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,7 +16,7 @@ import { QuoteSlateInterface } from 'src/app/interfaces/quote-slate.interface';
   imports: [MatIconModule, MatButtonModule, MatTooltipModule, MatRippleModule, CardThemeDirective],
 })
 export class QuoteCardComponent {
-  @Input() quoteData!: QuoteSlateInterface;
+  quoteData = input.required<QuoteSlateInterface>();
   constructor(private sharedService: SharedService) { }
 
   public copyToClipboard(data: QuoteSlateInterface) {
